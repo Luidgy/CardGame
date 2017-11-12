@@ -11,10 +11,14 @@ namespace JeuCarte
         private int numTour = 1;
         private Jeu leJeu;
         private Joueur leJoueur;
+		private Carte laCarteJouer;
+		private List<Joueur> laListe;
+		Random rmd;
 
-        public Tour(Joueur tLeJoueur)
+		public Tour(Joueur tLeJoueur, Carte laCarte)
         {
             leJoueur = tLeJoueur;
+			laCarteJouer = laCarte;
             numTour++;
         }
 
@@ -24,5 +28,9 @@ namespace JeuCarte
 
         public String getNameJoueurDuTour() { return leJoueur.getNomJoueur(); }
 
-    }
+		public Carte getCarteJouer(){ return laCarteJouer; }
+
+		
+
+	}
 }

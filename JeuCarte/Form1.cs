@@ -26,45 +26,9 @@ namespace JeuCarte
         List<Carte> carteJ2;
         List<Carte> listCarteJou = new List<Carte>();
 
-
-
-
         public Form1()
         {
             InitializeComponent();
-
-
-
-            /*
-            List<Joueur> maliste = new List<Joueur>();
-
-            
-            Joueur j1 = new Joueur("Poto", "Phil", new List<Carte>());
-            Joueur j2 = new Joueur("Mili", "Kapo", new List<Carte>());
-            //Joueur j3 = new Joueur("Pogba", "Math", new List<Carte>());
-
-            maliste.Add(j1);
-            maliste.Add(j2);
-            //maliste.Add(j3);
-            
-            Jeu monJeu = new Jeu(maliste, new List<Carte>());
-
-
-            /*foreach (Object c in monJeu.getListCartePioche())
-            {
-                nbCarte.Text = monJeu.getNbCartePioche().ToString();
-            }
-            
-
-           
-
-            //nbCarte.Text = monJeu.getNbCartePile().ToString();
-           */
-
-
-
-            
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -94,6 +58,8 @@ namespace JeuCarte
             card6.Name = carteJ1.ElementAt(5).getNomcarte();
             card7.Name = carteJ1.ElementAt(6).getNomcarte();
             card8.Name = carteJ1.ElementAt(7).getNomcarte();
+
+			label2.Text = "C'est le tour de " + maList.ElementAt(0).getNomJoueur();
         }
 
         private void card1_Paint(object sender, PaintEventArgs e)
@@ -151,10 +117,11 @@ namespace JeuCarte
 
         private void button1_Click(object sender, EventArgs e)
         {
+			if (leTour.getNameJoueurDuTour().Equals(j1))
+				leTour = new Tour(j1, carteJouer);
             pos2.BackgroundImage = pos1.BackgroundImage;
             pos1.BackgroundImage = null;
-			label2.Text = "la carte jouer est : " + carteJouer.getNomcarte();
-			
+			label2.Text = "la carte jouer est : " + carteJouer.getNomcarte();			
         }
 
 		private CouleurCarte getCouleurCarte(string coul)

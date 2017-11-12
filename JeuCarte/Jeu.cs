@@ -12,7 +12,7 @@ namespace JeuCarte
         List<Carte> listCartesPioche = new List<Carte>(); // Liste des cartes dans la pioche
         Dictionary<Joueur, List<Carte>> jeuDuJoueur;
         List<Carte> listeCarteJ;
-        List<Joueur> listeJoueur;
+		List<Joueur> listeJoueur;
         List<Carte> carteDuJoueur = new List<Carte>();
 
 
@@ -21,7 +21,7 @@ namespace JeuCarte
         {
             melangerCarte();
             genererPioche();
-            listeJoueur = lesJoueurs;
+            listeJoueur = melangeListe(lesJoueurs);
             attribuerCarteJoueur(lesJoueurs);
         }
 
@@ -29,12 +29,6 @@ namespace JeuCarte
         {
            
         }
-
-        public void recupererCarte(Dictionary<List<Joueur>, List<Carte>> lesCartesJouer)
-        {
-
-        }
-
 
         /// <summary>
         /// Génère les Huits cartes du joueur
@@ -69,7 +63,10 @@ namespace JeuCarte
             }
         }
 
-        
+        /// <summary>
+		/// Supprime la carte rentrée en paramètre
+		/// </summary>
+		/// <param name="maCarte"></param>
         public void supprimerCarte(Carte maCarte)
         {
             listCartesPioche.Remove(maCarte);
@@ -93,11 +90,9 @@ namespace JeuCarte
             return carteDuJoueur;
         }
 
-        public void createListPlayers()
-        {
-
-        }
-
+		/// <summary>
+		/// Génère la pioche
+		/// </summary>
         public void genererPioche()
         {
             for (int i = 2; i <= 10; i++)
@@ -129,25 +124,47 @@ namespace JeuCarte
             listCartesPioche.Add(new Carte(ValeurCartes.As.ToString(), CouleurCarte.Trèfle));
 
         }
-
+		/// <summary>
+		/// Retourne la liste des joueurs
+		/// </summary>
+		/// <returns></returns>
+		public List<Joueur> getListJoueur()
+		{
+			return listeJoueur;
+		}
+		/// <summary>
+		/// Retourne le nombre de cartes dans la pioche
+		/// </summary>
+		/// <returns></returns>
         public int getNbCartePioche()
         {
             return listCartesPioche.Count;
         }
-
+		/// <summary>
+		/// Retourne les cartes qui sont encore dans la pioche
+		/// </summary>
+		/// <returns></returns>
         public List<Carte> getListCartePioche()
         {
             return listCartesPioche;
         }
-
+		/// <summary>
+		/// Mélange les cartes
+		/// </summary>
         public void melangerCarte()
         {
             listCartesPioche.Sort((x, y) => rmd.Next(-1, 7));
         }
 
-        public int getNbCartePile()
-        {
-            return listCartesPioche.Count;
-        }
-    }
+		/// <summary>
+		/// Retourne le joueur selectionner au hasard qui peut commencer la partie
+		/// </summary>
+		/// <returns></returns>
+		public List<Joueur> melangeListe(List<Joueur> maList)
+		{
+			rmd = new Random();
+			maList.Sort((x, y) => rmd.Next(0, maList.Count));
+			return maList;
+		}
+	}
 }
