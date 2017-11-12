@@ -166,5 +166,19 @@ namespace JeuCarte
 			maList.Sort((x, y) => rmd.Next(0, maList.Count));
 			return maList;
 		}
+
+		public Joueur getPremierJoueur()
+		{
+			return listeJoueur.ElementAt(0);
+		}
+
+
+		// Quand c'est le tour du premier Joueur, le programme refuse de passer au suivant
+		public Joueur getJoueurSuivant(int i)
+		{
+			if (i > listeJoueur.Count - 1)
+				return listeJoueur.ElementAt(0);				
+			return listeJoueur.ElementAt(i);
+		}
 	}
 }

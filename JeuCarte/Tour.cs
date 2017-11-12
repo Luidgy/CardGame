@@ -8,29 +8,38 @@ namespace JeuCarte
 {
     class Tour
     {
-        private int numTour = 1;
-        private Jeu leJeu;
+        private int numTour;
         private Joueur leJoueur;
 		private Carte laCarteJouer;
-		private List<Joueur> laListe;
-		Random rmd;
 
-		public Tour(Joueur tLeJoueur, Carte laCarte)
+
+		public Tour()
+		{
+
+		}
+
+		public Tour(Joueur tLeJoueur, Carte laCarte, int numT)
         {
             leJoueur = tLeJoueur;
 			laCarteJouer = laCarte;
-            numTour++;
+			numTour = numT;
         }
 
         public int getNumTour() {return numTour;}
 
-        public void setNumTour(int sNumTour) => numTour = sNumTour;
-
+		public void setNumTour(int numT)
+		{
+			numTour = numT;
+		}
+		
         public String getNameJoueurDuTour() { return leJoueur.getNomJoueur(); }
 
 		public Carte getCarteJouer(){ return laCarteJouer; }
 
-		
+		public Joueur GetJoueur()
+		{
+			return leJoueur;
+		}
 
 	}
 }

@@ -25,8 +25,11 @@ namespace JeuCarte
         List<Carte> carteJ1;
         List<Carte> carteJ2;
         List<Carte> listCarteJou = new List<Carte>();
+		Jeu maPartie;
+		int numTour = 1;
 
-        public Form1()
+
+		public Form1()
         {
             InitializeComponent();
         }
@@ -34,7 +37,7 @@ namespace JeuCarte
         private void Form1_Load(object sender, EventArgs e)
         {
             maList = new List<Joueur> { j1, j2, j3 };
-            Jeu maPartie = new Jeu(maList);
+            maPartie = new Jeu(maList);
             carteJ1 = maPartie.getCarteJoueur(j1);
             carteJ2 = maPartie.getCarteJoueur(j2);
 
@@ -48,9 +51,10 @@ namespace JeuCarte
             card7.BackgroundImage = ResizeImage(Image.FromFile(@"C:\Users\luidgy\source\repos\JeuCarte\JeuCarte\ListeDesCartes\" + carteJ1.ElementAt(6).getNomcarte() + ".png"), 99, 141);
             card8.BackgroundImage = ResizeImage(Image.FromFile(@"C:\Users\luidgy\source\repos\JeuCarte\JeuCarte\ListeDesCartes\" + carteJ1.ElementAt(7).getNomcarte() + ".png"), 99, 141);
 
-            
-            
-            card1.Name = carteJ1.ElementAt(0).getNomcarte();
+
+			
+
+			card1.Name = carteJ1.ElementAt(0).getNomcarte();
             card2.Name = carteJ1.ElementAt(1).getNomcarte();
             card3.Name = carteJ1.ElementAt(2).getNomcarte();
             card4.Name = carteJ1.ElementAt(3).getNomcarte();
@@ -58,6 +62,8 @@ namespace JeuCarte
             card6.Name = carteJ1.ElementAt(5).getNomcarte();
             card7.Name = carteJ1.ElementAt(6).getNomcarte();
             card8.Name = carteJ1.ElementAt(7).getNomcarte();
+
+			leTour = new Tour(maPartie.getPremierJoueur(), carteJouer, numTour);
 
 			label2.Text = "C'est le tour de " + maList.ElementAt(0).getNomJoueur();
         }
@@ -117,12 +123,21 @@ namespace JeuCarte
 
         private void button1_Click(object sender, EventArgs e)
         {
-			if (leTour.getNameJoueurDuTour().Equals(j1))
-				leTour = new Tour(j1, carteJouer);
-            pos2.BackgroundImage = pos1.BackgroundImage;
-            pos1.BackgroundImage = null;
-			label2.Text = "la carte jouer est : " + carteJouer.getNomcarte();			
-        }
+			pos2.BackgroundImage = pos1.BackgroundImage;
+			pos1.BackgroundImage = null;
+			numTour++;
+
+			// Je remet le numero du tour à 1 pour reprendre à zéro
+
+			if (numTour > maPartie.getListJoueur().Count)
+			{
+				numTour = 1;
+			}
+
+			label2.Text = "C'était le tour de " + leTour.getNameJoueurDuTour() + " et elle a jouer : " + carteJouer.getNomcarte();
+			leTour = new Tour(maPartie.getJoueurSuivant(leTour.getNumTour()), carteJouer, numTour);
+			label3.Text = "C'est le tour de " + leTour.getNameJoueurDuTour();	
+		}
 
 		private CouleurCarte getCouleurCarte(string coul)
 		{
