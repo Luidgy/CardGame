@@ -18,15 +18,16 @@ namespace JeuCarte
         Joueur j2 = new Joueur("Maco", "Maila", new List<Carte>());
         Joueur j3 = new Joueur("Lisa", "McCorty", new List<Carte>());
         Carte carteJouer;
-        Dictionary<Joueur, Carte> lesCartesJouer = new Dictionary<Joueur, Carte>();
+        //Dictionary<Joueur, Carte> lesCartesJouer = new Dictionary<Joueur, Carte>();
 
         List<Joueur> maList;
         Tour leTour;
         List<Carte> carteJ1;
         List<Carte> carteJ2;
-        List<Carte> listCarteJou = new List<Carte>();
+        //List<Carte> listCarteJou = new List<Carte>();
 		Jeu maPartie;
 		int numTour = 1;
+		static string appPath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
 
 
 		public Form1()
@@ -42,17 +43,14 @@ namespace JeuCarte
             carteJ2 = maPartie.getCarteJoueur(j2);
 
             
-            card1.BackgroundImage = ResizeImage(Image.FromFile(@"C:\Users\luidgy\source\repos\JeuCarte\JeuCarte\ListeDesCartes\" + carteJ1.ElementAt(0).getNomcarte() + ".png"), 99, 141);
-            card2.BackgroundImage = ResizeImage(Image.FromFile(@"C:\Users\luidgy\source\repos\JeuCarte\JeuCarte\ListeDesCartes\" + carteJ1.ElementAt(1).getNomcarte() + ".png"), 99, 141);
-            card3.BackgroundImage = ResizeImage(Image.FromFile(@"C:\Users\luidgy\source\repos\JeuCarte\JeuCarte\ListeDesCartes\" + carteJ1.ElementAt(2).getNomcarte() + ".png"), 99, 141);
-            card4.BackgroundImage = ResizeImage(Image.FromFile(@"C:\Users\luidgy\source\repos\JeuCarte\JeuCarte\ListeDesCartes\" + carteJ1.ElementAt(3).getNomcarte() + ".png"), 99, 141);
-            card5.BackgroundImage = ResizeImage(Image.FromFile(@"C:\Users\luidgy\source\repos\JeuCarte\JeuCarte\ListeDesCartes\" + carteJ1.ElementAt(4).getNomcarte() + ".png"), 99, 141);
-            card6.BackgroundImage = ResizeImage(Image.FromFile(@"C:\Users\luidgy\source\repos\JeuCarte\JeuCarte\ListeDesCartes\" + carteJ1.ElementAt(5).getNomcarte() + ".png"), 99, 141);
-            card7.BackgroundImage = ResizeImage(Image.FromFile(@"C:\Users\luidgy\source\repos\JeuCarte\JeuCarte\ListeDesCartes\" + carteJ1.ElementAt(6).getNomcarte() + ".png"), 99, 141);
-            card8.BackgroundImage = ResizeImage(Image.FromFile(@"C:\Users\luidgy\source\repos\JeuCarte\JeuCarte\ListeDesCartes\" + carteJ1.ElementAt(7).getNomcarte() + ".png"), 99, 141);
-
-
-			
+            card1.BackgroundImage = ResizeImage(Image.FromFile(appPath + carteJ1.ElementAt(0).getPath()), 99, 141);
+            card2.BackgroundImage = ResizeImage(Image.FromFile(appPath + carteJ1.ElementAt(1).getPath()), 99, 141);
+            card3.BackgroundImage = ResizeImage(Image.FromFile(appPath + carteJ1.ElementAt(2).getPath()), 99, 141);
+            card4.BackgroundImage = ResizeImage(Image.FromFile(appPath + carteJ1.ElementAt(3).getPath()), 99, 141);
+            card5.BackgroundImage = ResizeImage(Image.FromFile(appPath + carteJ1.ElementAt(4).getPath()), 99, 141);
+            card6.BackgroundImage = ResizeImage(Image.FromFile(appPath + carteJ1.ElementAt(5).getPath()), 99, 141);
+            card7.BackgroundImage = ResizeImage(Image.FromFile(appPath + carteJ1.ElementAt(6).getPath()), 99, 141);
+            card8.BackgroundImage = ResizeImage(Image.FromFile(appPath + carteJ1.ElementAt(7).getPath()), 99, 141);
 
 			card1.Name = carteJ1.ElementAt(0).getNomcarte();
             card2.Name = carteJ1.ElementAt(1).getNomcarte();
@@ -76,68 +74,101 @@ namespace JeuCarte
         private void card1_MouseClick(object sender, MouseEventArgs e)
         {
             pos1.BackgroundImage = card1.BackgroundImage;
-			carteJouer = new Carte(getValeurCarte(card1.Name)[0], getCouleurCarte(getValeurCarte(card1.Name)[1]));                 
-        }
+			carteJouer = new Carte(getValeurCarte(card1.Name)[0], 
+				getCouleurCarte(getValeurCarte(card1.Name)[1]),
+				maPartie.genererPath(getValeurCarte(card1.Name)[0], 
+				getCouleurCarte(getValeurCarte(card1.Name)[1])));
 
-        private void card2_MouseClick(object sender, MouseEventArgs e)
+		}
+
+		private void card2_MouseClick(object sender, MouseEventArgs e)
         {
             pos1.BackgroundImage = card2.BackgroundImage;
-			carteJouer = new Carte(getValeurCarte(card2.Name)[0], getCouleurCarte(getValeurCarte(card2.Name)[1]));
+			carteJouer = new Carte(getValeurCarte(card2.Name)[0], 
+				getCouleurCarte(getValeurCarte(card2.Name)[1]),
+				maPartie.genererPath(getValeurCarte(card2.Name)[0],
+				getCouleurCarte(getValeurCarte(card2.Name)[1])));
 		}
 
         private void card3_MouseClick(object sender, MouseEventArgs e)
         {
             pos1.BackgroundImage = card3.BackgroundImage;
-			carteJouer = new Carte(getValeurCarte(card3.Name)[0], getCouleurCarte(getValeurCarte(card3.Name)[1]));
+			carteJouer = new Carte(getValeurCarte(card3.Name)[0],
+				getCouleurCarte(getValeurCarte(card3.Name)[1]),
+				maPartie.genererPath(getValeurCarte(card3.Name)[0],
+				getCouleurCarte(getValeurCarte(card3.Name)[1])));
 		}
 
         private void card4_MouseClick(object sender, MouseEventArgs e)
         {
             pos1.BackgroundImage = card4.BackgroundImage;
-			carteJouer = new Carte(getValeurCarte(card4.Name)[0], getCouleurCarte(getValeurCarte(card4.Name)[1]));
+			carteJouer = new Carte(getValeurCarte(card4.Name)[0], 
+				getCouleurCarte(getValeurCarte(card4.Name)[1]),
+				maPartie.genererPath(getValeurCarte(card4.Name)[0],
+				getCouleurCarte(getValeurCarte(card4.Name)[1])));
 		}
 
         private void card5_Click(object sender, EventArgs e)
         {
             pos1.BackgroundImage = card5.BackgroundImage;
-			carteJouer = new Carte(getValeurCarte(card5.Name)[0], getCouleurCarte(getValeurCarte(card5.Name)[1]));
+			carteJouer = new Carte(getValeurCarte(card5.Name)[0], 
+				getCouleurCarte(getValeurCarte(card5.Name)[1]),
+				maPartie.genererPath(getValeurCarte(card5.Name)[0],
+				getCouleurCarte(getValeurCarte(card5.Name)[1])));
 		}
 
         private void card6_MouseClick(object sender, MouseEventArgs e)
         {
             pos1.BackgroundImage = card6.BackgroundImage;
-			carteJouer = new Carte(getValeurCarte(card6.Name)[0], getCouleurCarte(getValeurCarte(card6.Name)[1]));
+			carteJouer = new Carte(getValeurCarte(card6.Name)[0], 
+				getCouleurCarte(getValeurCarte(card6.Name)[1]),
+				maPartie.genererPath(getValeurCarte(card6.Name)[0],
+				getCouleurCarte(getValeurCarte(card6.Name)[1])));
 		}
 
         private void card7_MouseClick(object sender, MouseEventArgs e)
         {
             pos1.BackgroundImage = card7.BackgroundImage;
-			carteJouer = new Carte(getValeurCarte(card7.Name)[0], getCouleurCarte(getValeurCarte(card7.Name)[1]));
+			carteJouer = new Carte(getValeurCarte(card7.Name)[0], 
+				getCouleurCarte(getValeurCarte(card7.Name)[1]),
+				maPartie.genererPath(getValeurCarte(card7.Name)[0],
+				getCouleurCarte(getValeurCarte(card7.Name)[1])));
 		}
 
         private void card8_MouseClick(object sender, MouseEventArgs e)
         {
             pos1.BackgroundImage = card8.BackgroundImage;
-			carteJouer = new Carte(getValeurCarte(card8.Name)[0], getCouleurCarte(getValeurCarte(card8.Name)[1]));
+			carteJouer = new Carte(getValeurCarte(card8.Name)[0],
+				getCouleurCarte(getValeurCarte(card8.Name)[1]),
+				maPartie.genererPath(getValeurCarte(card8.Name)[0],
+				getCouleurCarte(getValeurCarte(card8.Name)[1])));
 		}
 
         private void button1_Click(object sender, EventArgs e)
         {
+			tourSuivant();
+			
+		}
+
+		private void tourSuivant()
+		{
 			pos2.BackgroundImage = pos1.BackgroundImage;
+
 			pos1.BackgroundImage = null;
 			numTour++;
-
 			// Je remet le numero du tour à 1 pour reprendre à zéro
 
 			if (numTour > maPartie.getListJoueur().Count)
-			{
 				numTour = 1;
-			}
 
 			label2.Text = "C'était le tour de " + leTour.getNameJoueurDuTour() + " et elle a jouer : " + carteJouer.getNomcarte();
 			leTour = new Tour(maPartie.getJoueurSuivant(leTour.getNumTour()), carteJouer, numTour);
-			label3.Text = "C'est le tour de " + leTour.getNameJoueurDuTour();	
+			label3.Text = "C'est le tour de " + leTour.getNameJoueurDuTour();
+			
 		}
+
+
+
 
 		private CouleurCarte getCouleurCarte(string coul)
 		{
@@ -152,6 +183,15 @@ namespace JeuCarte
 				val = CouleurCarte.Trèfle;
 
 			return val;
+		}
+
+		private void trouverCarteJouer(string nomCarte, List<Carte> listeCarte)
+		{
+			foreach (Carte c in listeCarte)
+			{
+				if (c.getNomcarte().Equals(nomCarte))
+					carteJouer = c;
+			}
 		}
 
 		private string[] getValeurCarte(String nomCarte)
@@ -190,5 +230,10 @@ namespace JeuCarte
 
             return destImage;
         }
+
+		static string getPath()
+		{
+			return appPath;
+		}
     }
 }

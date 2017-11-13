@@ -90,39 +90,49 @@ namespace JeuCarte
             return carteDuJoueur;
         }
 
+		public string genererPath(ValeurCartes valeur, CouleurCarte couleur)
+		{
+			string path = @"\ListeDesCartes\" + valeur.ToString() + " " + couleur.ToString() + ".png";
+			return path;
+		}
+
+		public string genererPath(string valeur, CouleurCarte couleur)
+		{
+			string path = @"\ListeDesCartes\" + valeur.ToString() + " " + couleur.ToString() + ".png";
+			return path;
+		}
+
 		/// <summary>
 		/// Génère la pioche
 		/// </summary>
-        public void genererPioche()
+		public void genererPioche()
         {
             for (int i = 2; i <= 10; i++)
             {
-                listCartesPioche.Add(new Carte(i.ToString(), CouleurCarte.Coeur));
-                listCartesPioche.Add(new Carte(i.ToString(), CouleurCarte.Carreau));
-                listCartesPioche.Add(new Carte(i.ToString(), CouleurCarte.Pique));
-                listCartesPioche.Add(new Carte(i.ToString(), CouleurCarte.Trèfle));
+                listCartesPioche.Add(new Carte(i.ToString(), CouleurCarte.Coeur, genererPath(i.ToString(), CouleurCarte.Coeur)));
+                listCartesPioche.Add(new Carte(i.ToString(), CouleurCarte.Carreau, genererPath(i.ToString(), CouleurCarte.Carreau)));
+                listCartesPioche.Add(new Carte(i.ToString(), CouleurCarte.Pique, genererPath(i.ToString(), CouleurCarte.Pique)));
+                listCartesPioche.Add(new Carte(i.ToString(), CouleurCarte.Trèfle, genererPath(i.ToString(), CouleurCarte.Trèfle)));
             }
+			listCartesPioche.Add(new Carte(ValeurCartes.Valet.ToString(), CouleurCarte.Coeur, genererPath(ValeurCartes.Valet, CouleurCarte.Coeur)));
+            listCartesPioche.Add(new Carte(ValeurCartes.Valet.ToString(), CouleurCarte.Carreau, genererPath(ValeurCartes.Valet, CouleurCarte.Carreau)));
+            listCartesPioche.Add(new Carte(ValeurCartes.Valet.ToString(), CouleurCarte.Pique, genererPath(ValeurCartes.Valet, CouleurCarte.Pique)));
+            listCartesPioche.Add(new Carte(ValeurCartes.Valet.ToString(), CouleurCarte.Trèfle, genererPath(ValeurCartes.Valet, CouleurCarte.Trèfle)));
 
-            listCartesPioche.Add(new Carte(ValeurCartes.Valet.ToString(), CouleurCarte.Coeur));
-            listCartesPioche.Add(new Carte(ValeurCartes.Valet.ToString(), CouleurCarte.Carreau));
-            listCartesPioche.Add(new Carte(ValeurCartes.Valet.ToString(), CouleurCarte.Pique));
-            listCartesPioche.Add(new Carte(ValeurCartes.Valet.ToString(), CouleurCarte.Trèfle));
+            listCartesPioche.Add(new Carte(ValeurCartes.Dame.ToString(), CouleurCarte.Coeur, genererPath(ValeurCartes.Dame, CouleurCarte.Coeur)));
+            listCartesPioche.Add(new Carte(ValeurCartes.Dame.ToString(), CouleurCarte.Carreau, genererPath(ValeurCartes.Dame, CouleurCarte.Carreau)));
+            listCartesPioche.Add(new Carte(ValeurCartes.Dame.ToString(), CouleurCarte.Pique, genererPath(ValeurCartes.Dame, CouleurCarte.Pique)));
+            listCartesPioche.Add(new Carte(ValeurCartes.Dame.ToString(), CouleurCarte.Trèfle, genererPath(ValeurCartes.Dame, CouleurCarte.Trèfle)));
 
-            listCartesPioche.Add(new Carte(ValeurCartes.Dame.ToString(), CouleurCarte.Coeur));
-            listCartesPioche.Add(new Carte(ValeurCartes.Dame.ToString(), CouleurCarte.Carreau));
-            listCartesPioche.Add(new Carte(ValeurCartes.Dame.ToString(), CouleurCarte.Pique));
-            listCartesPioche.Add(new Carte(ValeurCartes.Dame.ToString(), CouleurCarte.Trèfle));
+            listCartesPioche.Add(new Carte(ValeurCartes.Roi.ToString(), CouleurCarte.Coeur, genererPath(ValeurCartes.Roi, CouleurCarte.Coeur)));
+            listCartesPioche.Add(new Carte(ValeurCartes.Roi.ToString(), CouleurCarte.Carreau, genererPath(ValeurCartes.Roi, CouleurCarte.Carreau)));
+            listCartesPioche.Add(new Carte(ValeurCartes.Roi.ToString(), CouleurCarte.Pique, genererPath(ValeurCartes.Roi, CouleurCarte.Pique)));
+            listCartesPioche.Add(new Carte(ValeurCartes.Roi.ToString(), CouleurCarte.Trèfle, genererPath(ValeurCartes.Roi, CouleurCarte.Trèfle)));
 
-            listCartesPioche.Add(new Carte(ValeurCartes.Roi.ToString(), CouleurCarte.Coeur));
-            listCartesPioche.Add(new Carte(ValeurCartes.Roi.ToString(), CouleurCarte.Carreau));
-            listCartesPioche.Add(new Carte(ValeurCartes.Roi.ToString(), CouleurCarte.Pique));
-            listCartesPioche.Add(new Carte(ValeurCartes.Roi.ToString(), CouleurCarte.Trèfle));
-
-            listCartesPioche.Add(new Carte(ValeurCartes.As.ToString(), CouleurCarte.Coeur));
-            listCartesPioche.Add(new Carte(ValeurCartes.As.ToString(), CouleurCarte.Carreau));
-            listCartesPioche.Add(new Carte(ValeurCartes.As.ToString(), CouleurCarte.Pique));
-            listCartesPioche.Add(new Carte(ValeurCartes.As.ToString(), CouleurCarte.Trèfle));
-
+            listCartesPioche.Add(new Carte(ValeurCartes.As.ToString(), CouleurCarte.Coeur, genererPath(ValeurCartes.As, CouleurCarte.Coeur)));
+            listCartesPioche.Add(new Carte(ValeurCartes.As.ToString(), CouleurCarte.Carreau, genererPath(ValeurCartes.As, CouleurCarte.Carreau)));
+            listCartesPioche.Add(new Carte(ValeurCartes.As.ToString(), CouleurCarte.Pique, genererPath(ValeurCartes.As, CouleurCarte.Pique)));
+            listCartesPioche.Add(new Carte(ValeurCartes.As.ToString(), CouleurCarte.Trèfle, genererPath(ValeurCartes.As, CouleurCarte.Trèfle)));
         }
 		/// <summary>
 		/// Retourne la liste des joueurs
@@ -172,13 +182,16 @@ namespace JeuCarte
 			return listeJoueur.ElementAt(0);
 		}
 
-
-		// Quand c'est le tour du premier Joueur, le programme refuse de passer au suivant
 		public Joueur getJoueurSuivant(int i)
 		{
 			if (i > listeJoueur.Count - 1)
 				return listeJoueur.ElementAt(0);				
 			return listeJoueur.ElementAt(i);
+		}
+
+		public void estJouer(Joueur leJoueur, Carte laCarte)
+		{
+
 		}
 	}
 }

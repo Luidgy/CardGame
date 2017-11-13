@@ -91,58 +91,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ListeDesCartes\10 Carreau.png" />
-    <Resource Include="ListeDesCartes\10 Coeur.png" />
-    <Resource Include="ListeDesCartes\10 Pique.png" />
-    <Resource Include="ListeDesCartes\10 Trèfle.png" />
-    <Resource Include="ListeDesCartes\2 Carreau.png" />
-    <Resource Include="ListeDesCartes\2 Coeur.png" />
-    <Resource Include="ListeDesCartes\2 Pique.png" />
-    <Resource Include="ListeDesCartes\2 Trèfle.png" />
-    <Resource Include="ListeDesCartes\3 Carreau.png" />
-    <Resource Include="ListeDesCartes\3 Coeur.png" />
-    <Resource Include="ListeDesCartes\3 Pique.png" />
-    <Resource Include="ListeDesCartes\3 Trèfle.png" />
-    <Resource Include="ListeDesCartes\4 Carreau.png" />
-    <Resource Include="ListeDesCartes\4 Coeur.png" />
-    <Resource Include="ListeDesCartes\4 Pique.png" />
-    <Resource Include="ListeDesCartes\4 Trèfle.png" />
-    <Resource Include="ListeDesCartes\5 Carreau.png" />
-    <Resource Include="ListeDesCartes\5 Coeur.png" />
-    <Resource Include="ListeDesCartes\5 Pique.png" />
-    <Resource Include="ListeDesCartes\5 Trèfle.png" />
-    <Resource Include="ListeDesCartes\6 Carreau.png" />
-    <Resource Include="ListeDesCartes\6 Coeur.png" />
-    <Resource Include="ListeDesCartes\6 Pique.png" />
-    <Resource Include="ListeDesCartes\6 Trèfle.png" />
-    <Resource Include="ListeDesCartes\7 Carreau.png" />
-    <Resource Include="ListeDesCartes\7 Coeur.png" />
-    <Resource Include="ListeDesCartes\7 Pique.png" />
-    <Resource Include="ListeDesCartes\7 Trèfle.png" />
-    <Resource Include="ListeDesCartes\8 Carreau.png" />
-    <Resource Include="ListeDesCartes\8 Coeur.png" />
-    <Resource Include="ListeDesCartes\8 Pique.png" />
-    <Resource Include="ListeDesCartes\8 Trèfle.png" />
-    <Resource Include="ListeDesCartes\9 Carreau.png" />
-    <Resource Include="ListeDesCartes\9 Coeur.png" />
-    <Resource Include="ListeDesCartes\9 Pique.png" />
-    <Resource Include="ListeDesCartes\9 Trèfle.png" />
-    <Resource Include="ListeDesCartes\As Carreau.png" />
-    <Resource Include="ListeDesCartes\As Coeur.png" />
-    <Resource Include="ListeDesCartes\As Pique.png" />
-    <Resource Include="ListeDesCartes\As Trèfle.png" />
-    <Resource Include="ListeDesCartes\Dame Trèfle.png" />
-    <Resource Include="ListeDesCartes\Joker 1.png" />
-    <Resource Include="ListeDesCartes\Joker 2.png" />
-    <Resource Include="ListeDesCartes\Roi Carreau.png" />
-    <Resource Include="ListeDesCartes\Roi Coeur.png" />
-    <Resource Include="ListeDesCartes\Roi Pique.png" />
-    <Resource Include="ListeDesCartes\Roi Trèfle.png" />
-    <Resource Include="ListeDesCartes\Valet Carreau.png" />
-    <Resource Include="ListeDesCartes\Valet Coeur.png" />
-    <Resource Include="ListeDesCartes\Valet Pique.png" />
-    <Resource Include="ListeDesCartes\Valet Trèfle.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
